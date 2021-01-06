@@ -52,10 +52,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rentaController.cs" />
+    <Compile Include="usuarioController.cs" />
+    <Compile Include="videojuegoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\models\models.csproj">
+      <Project>{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}</Project>
+      <Name>models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

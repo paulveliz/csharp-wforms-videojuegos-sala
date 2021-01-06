@@ -10,7 +10,6 @@ namespace models
     {
         public Renta Renta { get; set; }
         public List<RentaDetalle> Detalles { get; set; }
-        
         public FullRenta(Renta renta, List<RentaDetalle> detalles)
         {
             this.Renta = renta;
