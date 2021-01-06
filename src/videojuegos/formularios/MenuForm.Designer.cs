@@ -84,7 +84,7 @@
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
@@ -95,7 +95,7 @@
             this.informePorFechasToolStripMenuItem,
             this.informePorEmpleadoToolStripMenuItem});
             this.auditoriasToolStripMenuItem.Name = "auditoriasToolStripMenuItem";
-            this.auditoriasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.auditoriasToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.auditoriasToolStripMenuItem.Text = "Auditorias";
             // 
             // depurarAuditoriasToolStripMenuItem
@@ -136,7 +136,7 @@
             // informeDeClientesToolStripMenuItem
             // 
             this.informeDeClientesToolStripMenuItem.Name = "informeDeClientesToolStripMenuItem";
-            this.informeDeClientesToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.informeDeClientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.informeDeClientesToolStripMenuItem.Text = "Informe de clientes";
             // 
             // rentasToolStripMenuItem
@@ -156,6 +156,7 @@
             this.rentarVideojuegosToolStripMenuItem.Name = "rentarVideojuegosToolStripMenuItem";
             this.rentarVideojuegosToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
             this.rentarVideojuegosToolStripMenuItem.Text = "Rentar videojuegos";
+            this.rentarVideojuegosToolStripMenuItem.Click += new System.EventHandler(this.rentarVideojuegosToolStripMenuItem_Click);
             // 
             // informeDeRentasPorFechasToolStripMenuItem
             // 
@@ -178,8 +179,8 @@
             // inventariosToolStripMenuItem
             // 
             this.inventariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.imprimirInventarioToolStripMenuItem,
             this.gestionarInventarioToolStripMenuItem,
+            this.imprimirInventarioToolStripMenuItem,
             this.informeDeAgotadosToolStripMenuItem,
             this.informePorAgotarseToolStripMenuItem});
             this.inventariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inventariosToolStripMenuItem.Image")));
@@ -198,6 +199,7 @@
             this.gestionarInventarioToolStripMenuItem.Name = "gestionarInventarioToolStripMenuItem";
             this.gestionarInventarioToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.gestionarInventarioToolStripMenuItem.Text = "Gestionar inventario";
+            this.gestionarInventarioToolStripMenuItem.Click += new System.EventHandler(this.gestionarInventarioToolStripMenuItem_Click);
             // 
             // informeDeAgotadosToolStripMenuItem
             // 
@@ -217,6 +219,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 

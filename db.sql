@@ -27,6 +27,7 @@ CREATE TABLE inventarios(
 CREATE TABLE usuarios(
     id int primary key identity(1,1),
     nombre varchar(55) not null,
+    nombre_real varchar(55) not null,
     pass varchar(18) not null,
     estatus tinyint null default 0
 )

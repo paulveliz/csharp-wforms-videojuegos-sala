@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d5ed119936645949737a63e56084389" Name="Diagram1">
+        <EntityTypeShape EntityType="videojuegosModel.auditorias" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="videojuegosModel.clientes" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="videojuegosModel.inventarios" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="videojuegosModel.rentas" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="videojuegosModel.rentas_detalles" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="videojuegosModel.usuarios" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="videojuegosModel.videojuegos" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="videojuegosModel.FK__auditoria__usuar__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="videojuegosModel.FK__rentas__cliente___17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="videojuegosModel.FK__inventari__video__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="videojuegosModel.FK__rentas__usuario___160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="videojuegosModel.FK__rentas_de__renta__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="videojuegosModel.FK__rentas_de__video__1BC821DD" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
