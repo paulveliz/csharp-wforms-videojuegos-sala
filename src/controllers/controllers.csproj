@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clienteController.cs" />
+    <Compile Include="inventarioController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="rentaController.cs" />
     <Compile Include="usuarioController.cs" />
