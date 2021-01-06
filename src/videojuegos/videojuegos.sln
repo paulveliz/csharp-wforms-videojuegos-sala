@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "videojuegos", "videojuegos.csproj", "{39379152-B270-4AFD-A5E8-7A5240EF708F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "controllers", "..\controllers\controllers.csproj", "{44B113F5-78D2-45CF-BBFB-EF60210DBE82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "models", "..\models\models.csproj", "{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39379152-B270-4AFD-A5E8-7A5240EF708F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39379152-B270-4AFD-A5E8-7A5240EF708F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39379152-B270-4AFD-A5E8-7A5240EF708F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39379152-B270-4AFD-A5E8-7A5240EF708F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44B113F5-78D2-45CF-BBFB-EF60210DBE82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44B113F5-78D2-45CF-BBFB-EF60210DBE82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44B113F5-78D2-45CF-BBFB-EF60210DBE82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44B113F5-78D2-45CF-BBFB-EF60210DBE82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F75172E-33CE-41B7-8C24-CC7DEA308827}
+	EndGlobalSection
+EndGlobal
