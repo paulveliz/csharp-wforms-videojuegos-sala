@@ -37,7 +37,10 @@ namespace controllers
             using (var db =  new videojuegos_db())
             {
                 var juegos = await db.videojuegos.Take(100).ToListAsync();
-                return juegos;
+                return juegos
+                        .OrderByDescending(o => o.id)
+                        .Where(u => u.estatus != 0)
+                        .ToList();
             }
         }
 

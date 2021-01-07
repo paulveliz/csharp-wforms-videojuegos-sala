@@ -78,7 +78,10 @@ namespace controllers
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
-                return inventarios;
+                return inventarios
+                        .OrderByDescending(o => o.Id)
+                        .Where(u => u.Estatus != 0)
+                        .ToList();
             }
         }
 
@@ -96,7 +99,10 @@ namespace controllers
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
-                return inventarios;
+                return inventarios
+                        .OrderByDescending(o => o.Id)
+                        .Where(u => u.Estatus != 0)
+                        .ToList();
             }
         }
         public async Task<List<Inventario>> obtenerPorAgotar()
@@ -113,7 +119,10 @@ namespace controllers
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
-                return inventarios;
+                return inventarios
+                        .OrderByDescending(o => o.Id)
+                        .Where(u => u.Estatus != 0)
+                        .ToList();
             }
         }
     }

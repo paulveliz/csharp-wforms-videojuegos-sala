@@ -15,7 +15,8 @@ namespace controllers
             using (var db = new videojuegos_db())
             {
                 var usuario = await db.usuarios.FirstOrDefaultAsync(u =>
-                    u.id == usuarioId
+                    u.id == usuarioId &&
+                    u.estatus != 0
                 );
                 return usuario;
             }
@@ -27,20 +28,22 @@ namespace controllers
             {
                 var user = await db.usuarios.FirstOrDefaultAsync(u =>
                    u.nombre == usuario &&
-                   u.pass == pass
+                   u.pass == pass &&
+                   u.estatus != 0
                 );
 
                 return user != null ? user : null;
             }
         }
-        public async Task<bool> verificarNombre(string nombre)
+        public async Task<usuarios> verificarNombre(string nombre)
         {
             using (var db =  new videojuegos_db())
             {
                 var toVerify = await db.usuarios.FirstOrDefaultAsync(u =>
-                    u.nombre == nombre
+                    u.nombre == nombre &&
+                    u.estatus != 0
                 );
-                return toVerify != null ? true : false; 
+                return toVerify != null ? toVerify : null; 
             }
         }
 
@@ -49,7 +52,10 @@ namespace controllers
             using (var db = new videojuegos_db())
             {
                 var users = await db.usuarios.Take(100).ToListAsync();
-                return users;
+                return users
+                        .OrderByDescending( o => o.id)
+                        .Where(u => u.estatus != 0)
+                        .ToList();
             }
         }
 

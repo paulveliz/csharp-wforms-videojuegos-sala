@@ -62,7 +62,10 @@ namespace controllers
                 var cls = await db.clientes.Take(100)
                     .OrderByDescending(o => o.id)
                     .ToListAsync();
-                return cls;
+                return cls
+                        .OrderByDescending(o => o.id)
+                        .Where(u => u.estatus != 0)
+                        .ToList();
             }
         }
     }

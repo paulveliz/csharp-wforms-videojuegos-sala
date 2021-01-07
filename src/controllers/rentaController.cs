@@ -85,7 +85,10 @@ namespace controllers
                     }
                 );
 
-                return listaDeRentas.ToList();
+                return listaDeRentas
+                        .OrderByDescending(o => o.Renta.Id)
+                        .Where(u => u.Renta.Estatus != 0)
+                        .ToList();
             }
         }
 
@@ -128,7 +131,10 @@ namespace controllers
                     ).ToList())
                 );
 
-                return listaDeRentas.ToList();
+                return listaDeRentas
+                        .OrderByDescending(o => o.Renta.Id)
+                        .Where(u => u.Renta.Estatus != 0)
+                        .ToList();
             }
         }
         public async Task<List<FullRenta>> obtenerRentasPorUsuario(DateTime fromt, DateTime to, int usuarioId)
@@ -170,7 +176,10 @@ namespace controllers
                     ).ToList())
                 );
 
-                return listaDeRentas.ToList();
+                return listaDeRentas
+                        .OrderByDescending(o => o.Renta.Id)
+                        .Where(u => u.Renta.Estatus != 0)
+                        .ToList();
             }
         }
 
