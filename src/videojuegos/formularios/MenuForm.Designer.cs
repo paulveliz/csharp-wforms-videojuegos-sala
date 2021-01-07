@@ -45,8 +45,8 @@
             this.informeDeRentasPorClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informeDeRentasPorEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.imprimirInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imprimirInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informeDeAgotadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informePorAgotarseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +67,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(536, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(662, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,14 +129,14 @@
             // gestionarClientesToolStripMenuItem
             // 
             this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
             this.gestionarClientesToolStripMenuItem.Click += new System.EventHandler(this.gestionarClientesToolStripMenuItem_Click);
             // 
             // informeDeClientesToolStripMenuItem
             // 
             this.informeDeClientesToolStripMenuItem.Name = "informeDeClientesToolStripMenuItem";
-            this.informeDeClientesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.informeDeClientesToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
             this.informeDeClientesToolStripMenuItem.Text = "Informe de clientes";
             // 
             // rentasToolStripMenuItem
@@ -188,18 +188,18 @@
             this.inventariosToolStripMenuItem.Size = new System.Drawing.Size(115, 24);
             this.inventariosToolStripMenuItem.Text = "Inventarios";
             // 
-            // imprimirInventarioToolStripMenuItem
-            // 
-            this.imprimirInventarioToolStripMenuItem.Name = "imprimirInventarioToolStripMenuItem";
-            this.imprimirInventarioToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.imprimirInventarioToolStripMenuItem.Text = "Imprimir inventario";
-            // 
             // gestionarInventarioToolStripMenuItem
             // 
             this.gestionarInventarioToolStripMenuItem.Name = "gestionarInventarioToolStripMenuItem";
             this.gestionarInventarioToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.gestionarInventarioToolStripMenuItem.Text = "Gestionar inventario";
             this.gestionarInventarioToolStripMenuItem.Click += new System.EventHandler(this.gestionarInventarioToolStripMenuItem_Click);
+            // 
+            // imprimirInventarioToolStripMenuItem
+            // 
+            this.imprimirInventarioToolStripMenuItem.Name = "imprimirInventarioToolStripMenuItem";
+            this.imprimirInventarioToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.imprimirInventarioToolStripMenuItem.Text = "Imprimir inventario";
             // 
             // informeDeAgotadosToolStripMenuItem
             // 
@@ -227,15 +227,17 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 28);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(536, 627);
+            this.pictureBox1.Size = new System.Drawing.Size(662, 627);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 590);
+            this.label1.Location = new System.Drawing.Point(109, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(444, 46);
             this.label1.TabIndex = 2;
@@ -245,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 655);
+            this.ClientSize = new System.Drawing.Size(662, 655);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);

@@ -138,6 +138,16 @@
   <ItemGroup>
     <Folder Include="assets\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\controllers\controllers.csproj">
+      <Project>{44B113F5-78D2-45CF-BBFB-EF60210DBE82}</Project>
+      <Name>controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\models\models.csproj">
+      <Project>{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}</Project>
+      <Name>models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

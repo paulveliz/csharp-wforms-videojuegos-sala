@@ -91,6 +91,7 @@
             this.btnacceder.TabIndex = 2;
             this.btnacceder.Text = "Acceder";
             this.btnacceder.UseVisualStyleBackColor = true;
+            this.btnacceder.Click += new System.EventHandler(this.btnacceder_Click);
             // 
             // LoginForm
             // 

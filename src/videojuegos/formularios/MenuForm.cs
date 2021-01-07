@@ -1,4 +1,5 @@
-﻿using System;
+﻿using models.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,11 @@ namespace videojuegos.formularios
 {
     public partial class MenuForm : Form
     {
-        public MenuForm()
+        public usuarios Usuario { get; set; }
+        public MenuForm(usuarios usuario)
         {
+            this.Usuario = usuario;
+            this.Text = $"Sistema videojuegos v1 - Empleado actual: {usuario.nombre_real}";
             InitializeComponent();
         }
 

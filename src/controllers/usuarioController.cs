@@ -21,6 +21,18 @@ namespace controllers
             }
         }
 
+        public async Task<usuarios> verificarLogin(string usuario, string pass)
+        {
+            using (var db =  new videojuegos_db())
+            {
+                var user = await db.usuarios.FirstOrDefaultAsync(u =>
+                   u.nombre == usuario &&
+                   u.pass == pass
+                );
+
+                return user != null ? user : null;
+            }
+        }
         public async Task<bool> verificarNombre(string nombre)
         {
             using (var db =  new videojuegos_db())
