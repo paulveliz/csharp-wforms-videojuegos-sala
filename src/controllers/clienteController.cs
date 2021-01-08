@@ -21,6 +21,17 @@ namespace controllers
             }
         }
 
+        public async Task<clientes> verificarNombre(String clienteNombre)
+        {
+            using (var db = new videojuegos_db())
+            {
+                var cl = await db.clientes.FirstOrDefaultAsync(c =>
+                   c.nombre == clienteNombre &&
+                   c.estatus != 0
+                );
+                return cl != null ? cl : null;
+            }
+        }
         public async Task<clientes> crearNuevo( clientes cliente)
         {
             using (var db = new videojuegos_db())
@@ -35,7 +46,9 @@ namespace controllers
         {
             using (var db = new videojuegos_db())
             {
-                var cl = await obtenerPorId(cliente.id);
+                var cl = await db.clientes.FirstOrDefaultAsync(c => 
+                    c.id == cliente.id
+                );
                 cl.nombre = cliente.nombre;
                 await db.SaveChangesAsync();
                 return cl;
