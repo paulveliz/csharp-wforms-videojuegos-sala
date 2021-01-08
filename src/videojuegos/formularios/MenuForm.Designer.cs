@@ -52,6 +52,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.videojuegosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +183,8 @@
             this.gestionarInventarioToolStripMenuItem,
             this.imprimirInventarioToolStripMenuItem,
             this.informeDeAgotadosToolStripMenuItem,
-            this.informePorAgotarseToolStripMenuItem});
+            this.informePorAgotarseToolStripMenuItem,
+            this.videojuegosToolStripMenuItem});
             this.inventariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("inventariosToolStripMenuItem.Image")));
             this.inventariosToolStripMenuItem.Name = "inventariosToolStripMenuItem";
             this.inventariosToolStripMenuItem.Size = new System.Drawing.Size(115, 24);
@@ -243,6 +245,14 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Sistema de videojuegos";
             // 
+            // videojuegosToolStripMenuItem
+            // 
+            this.videojuegosToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.videojuegosToolStripMenuItem.Name = "videojuegosToolStripMenuItem";
+            this.videojuegosToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.videojuegosToolStripMenuItem.Text = "Videojuegos";
+            this.videojuegosToolStripMenuItem.Click += new System.EventHandler(this.videojuegosToolStripMenuItem_Click);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,5 +300,6 @@
         private System.Windows.Forms.ToolStripMenuItem gestionarInventarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informeDeAgotadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informePorAgotarseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem videojuegosToolStripMenuItem;
     }
 }

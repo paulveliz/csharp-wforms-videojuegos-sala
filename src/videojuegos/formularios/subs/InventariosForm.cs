@@ -16,5 +16,17 @@ namespace videojuegos.formularios.subs
         {
             InitializeComponent();
         }
+
+        private void btnaddcant_Click(object sender, EventArgs e)
+        {
+            int cant = Convert.ToInt32( this.txtcant.Text );
+            this.txtcant.Text = (cant + 1).ToString();
+        }
+
+        private void btnquitcant_Click(object sender, EventArgs e)
+        {
+            int cant = Convert.ToInt32(this.txtcant.Text);
+            this.txtcant.Text = cant == 1 ? cant.ToString() : (cant - 1).ToString();
+        }
     }
 }

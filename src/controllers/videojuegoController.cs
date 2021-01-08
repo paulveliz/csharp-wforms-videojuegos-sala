@@ -21,14 +21,15 @@ namespace controllers
             }
         }
 
-        public async Task<Boolean> verificarNombre(string nombre)
+        public async Task<videojuegos> verificarNombre(string nombre)
         {
             using (var db = new videojuegos_db())
             {
-                var toVerify = await db.videojuegos.FirstAsync(u =>
-                    u.nombre == nombre
+                var toVerify = await db.videojuegos.FirstOrDefaultAsync(u =>
+                    u.nombre == nombre &&
+                    u.estatus != 0
                 );
-                return toVerify != null ? true : false;
+                return toVerify != null ? toVerify : null;
             }
         }
 

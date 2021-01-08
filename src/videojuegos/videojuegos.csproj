@@ -92,6 +92,12 @@
     <Compile Include="formularios\subs\RentasForm.Designer.cs">
       <DependentUpon>RentasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\subs\VideojuegosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\subs\VideojuegosForm.Designer.cs">
+      <DependentUpon>VideojuegosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="formularios\LoginForm.resx">
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\subs\RentasForm.resx">
       <DependentUpon>RentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\subs\VideojuegosForm.resx">
+      <DependentUpon>VideojuegosForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

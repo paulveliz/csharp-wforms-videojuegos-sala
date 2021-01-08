@@ -51,5 +51,11 @@ namespace videojuegos.formularios
             if (r == DialogResult.No) return;
             Application.Exit();
         }
+
+        private void videojuegosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var videojuegosForm = new formularios.subs.VideojuegosForm();
+            videojuegosForm.ShowDialog();
+        }
     }
 }
