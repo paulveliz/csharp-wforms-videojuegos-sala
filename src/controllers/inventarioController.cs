@@ -17,11 +17,11 @@ namespace controllers
             {
                 var inv = await (from inventario in db.inventarios
                                  join videojuego in db.videojuegos on inventario.videojuego_id equals videojuego.id
-                                 where inventario.id == inventarioId
+                                 where inventario.id == inventarioId && videojuego.estatus != 0
                                  select new Inventario
                                  {
                                      Id = inventario.id,
-                                     Videojuego = videojuego,
+                                     Videojuego = videojuego.nombre,
                                      Existencias = inventario.existencias,
                                      Estatus = (int)inventario.estatus
                                  }).FirstOrDefaultAsync();
@@ -39,29 +39,29 @@ namespace controllers
             }
         }
 
-        public async Task<Inventario> agregarExistencias(int inventarioId, int existencias)
+        public async Task<Inventario> agregarExistencias(int videojuegoId, int existencias)
         {
             using (var db = new videojuegos_db())
             {
                 var inventario = await db.inventarios.FirstOrDefaultAsync(i =>
-                    i.id == inventarioId
+                    i.videojuego_id == videojuegoId
                 );
                 inventario.existencias += existencias;
                 await db.SaveChangesAsync();
-                return await obtenerPorId(inventarioId);
+                return await obtenerPorId(inventario.id);
             }
         }
 
-        public async Task<Inventario> disminuirExistencias(int inventarioId, int existencias)
+        public async Task<Inventario> disminuirExistencias(int videojuegoId, int existencias)
         {
             using (var db = new videojuegos_db())
             {
                 var inventario = await db.inventarios.FirstOrDefaultAsync(i =>
-                    i.id == inventarioId
+                    i.videojuego_id == videojuegoId
                 );
                 inventario.existencias -= existencias;
                 await db.SaveChangesAsync();
-                return await obtenerPorId(inventarioId);
+                return await obtenerPorId(inventario.id);
             }
         }
 
@@ -71,10 +71,11 @@ namespace controllers
             {
                 var inventarios = await (from inv in db.inventarios
                                          join videojuego in db.videojuegos on inv.videojuego_id equals videojuego.id
+                                         where videojuego.estatus != 0
                                          select new Inventario
                                          {
                                              Id = inv.id,
-                                             Videojuego = videojuego,
+                                             Videojuego = videojuego.nombre,
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
@@ -91,11 +92,11 @@ namespace controllers
             {
                 var inventarios = await (from inv in db.inventarios
                                          join videojuego in db.videojuegos on inv.videojuego_id equals videojuego.id
-                                         where inv.existencias == 0
+                                         where inv.existencias == 0 && videojuego.estatus != 0
                                          select new Inventario
                                          {
                                              Id = inv.id,
-                                             Videojuego = videojuego,
+                                             Videojuego = videojuego.nombre,
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
@@ -111,11 +112,11 @@ namespace controllers
             {
                 var inventarios = await (from inv in db.inventarios
                                          join videojuego in db.videojuegos on inv.videojuego_id equals videojuego.id
-                                         where inv.existencias <= 2
+                                         where inv.existencias <= 2 &&  inv.existencias !=0 && videojuego.estatus != 0
                                          select new Inventario
                                          {
                                              Id = inv.id,
-                                             Videojuego = videojuego,
+                                             Videojuego = videojuego.nombre,
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();

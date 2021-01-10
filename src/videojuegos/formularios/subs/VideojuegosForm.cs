@@ -131,6 +131,13 @@ namespace videojuegos.formularios.subs
 
                 if (newCl != null)
                 {
+                    var newInventario = await new inventarioController().crearNuevo(new inventarios
+                    {
+                        estatus = 1,
+                        existencias = 0,
+                        videojuego_id = newCl.id
+                    });
+
                     MessageBox.Show(
                         "El videojuego fue agregado con exito.",
                         "Exito",

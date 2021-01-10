@@ -10,7 +10,7 @@ namespace models
     public class Inventario
     {
         public int Id { get; set; }
-        public videojuegos Videojuego { get; set; }
+        public string Videojuego { get; set; }
         public int Existencias { get; set; }
         public int Estatus { get; set; }
     }

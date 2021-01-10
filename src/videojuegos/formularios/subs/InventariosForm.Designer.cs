@@ -39,12 +39,12 @@
             this.txtcant = new System.Windows.Forms.TextBox();
             this.btnsearch = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.button5 = new System.Windows.Forms.Button();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.swnombre = new System.Windows.Forms.RadioButton();
+            this.btnbuscar = new System.Windows.Forms.Button();
+            this.swtodos = new System.Windows.Forms.RadioButton();
+            this.swagotarse = new System.Windows.Forms.RadioButton();
+            this.swagotados = new System.Windows.Forms.RadioButton();
+            this.txtsearchbyname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtvideojuego = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -99,27 +99,29 @@
             // btnquit
             // 
             this.btnquit.Enabled = false;
-            this.btnquit.Location = new System.Drawing.Point(9, 189);
+            this.btnquit.Location = new System.Drawing.Point(9, 197);
             this.btnquit.Name = "btnquit";
             this.btnquit.Size = new System.Drawing.Size(247, 30);
             this.btnquit.TabIndex = 9;
             this.btnquit.Text = "Disminuir existencias -";
             this.btnquit.UseVisualStyleBackColor = true;
+            this.btnquit.Click += new System.EventHandler(this.btnquit_Click);
             // 
             // btnadd
             // 
             this.btnadd.Enabled = false;
-            this.btnadd.Location = new System.Drawing.Point(9, 153);
+            this.btnadd.Location = new System.Drawing.Point(9, 161);
             this.btnadd.Name = "btnadd";
             this.btnadd.Size = new System.Drawing.Size(247, 30);
             this.btnadd.TabIndex = 8;
             this.btnadd.Text = "Agregar existencias +";
             this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 91);
+            this.label2.Location = new System.Drawing.Point(6, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 7;
@@ -127,7 +129,7 @@
             // 
             // btnaddcant
             // 
-            this.btnaddcant.Location = new System.Drawing.Point(118, 111);
+            this.btnaddcant.Location = new System.Drawing.Point(118, 122);
             this.btnaddcant.Name = "btnaddcant";
             this.btnaddcant.Size = new System.Drawing.Size(41, 26);
             this.btnaddcant.TabIndex = 6;
@@ -137,7 +139,7 @@
             // 
             // btnquitcant
             // 
-            this.btnquitcant.Location = new System.Drawing.Point(71, 111);
+            this.btnquitcant.Location = new System.Drawing.Point(71, 122);
             this.btnquitcant.Name = "btnquitcant";
             this.btnquitcant.Size = new System.Drawing.Size(41, 26);
             this.btnquitcant.TabIndex = 5;
@@ -147,7 +149,7 @@
             // 
             // txtcant
             // 
-            this.txtcant.Location = new System.Drawing.Point(7, 112);
+            this.txtcant.Location = new System.Drawing.Point(7, 123);
             this.txtcant.Name = "txtcant";
             this.txtcant.ReadOnly = true;
             this.txtcant.Size = new System.Drawing.Size(58, 22);
@@ -166,12 +168,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.radioButton3);
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.swnombre);
+            this.groupBox3.Controls.Add(this.btnbuscar);
+            this.groupBox3.Controls.Add(this.swtodos);
+            this.groupBox3.Controls.Add(this.swagotarse);
+            this.groupBox3.Controls.Add(this.swagotados);
+            this.groupBox3.Controls.Add(this.txtsearchbyname);
             this.groupBox3.Location = new System.Drawing.Point(3, 247);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(256, 276);
@@ -179,63 +181,68 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ordenar inventario";
             // 
-            // radioButton4
+            // swnombre
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(8, 55);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(150, 21);
-            this.radioButton4.TabIndex = 13;
-            this.radioButton4.Text = "Buscar por nombre";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.swnombre.AutoSize = true;
+            this.swnombre.Location = new System.Drawing.Point(8, 55);
+            this.swnombre.Name = "swnombre";
+            this.swnombre.Size = new System.Drawing.Size(150, 21);
+            this.swnombre.TabIndex = 13;
+            this.swnombre.Text = "Buscar por nombre";
+            this.swnombre.UseVisualStyleBackColor = true;
+            this.swnombre.CheckedChanged += new System.EventHandler(this.swnombre_CheckedChanged);
             // 
-            // button5
+            // btnbuscar
             // 
-            this.button5.Location = new System.Drawing.Point(138, 235);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(112, 30);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Buscar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnbuscar.Location = new System.Drawing.Point(138, 235);
+            this.btnbuscar.Name = "btnbuscar";
+            this.btnbuscar.Size = new System.Drawing.Size(112, 30);
+            this.btnbuscar.TabIndex = 9;
+            this.btnbuscar.Text = "Buscar";
+            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
-            // radioButton3
+            // swtodos
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Checked = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 115);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(69, 21);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Todos";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.swtodos.AutoSize = true;
+            this.swtodos.Checked = true;
+            this.swtodos.Location = new System.Drawing.Point(6, 115);
+            this.swtodos.Name = "swtodos";
+            this.swtodos.Size = new System.Drawing.Size(69, 21);
+            this.swtodos.TabIndex = 12;
+            this.swtodos.TabStop = true;
+            this.swtodos.Text = "Todos";
+            this.swtodos.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // swagotarse
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(5, 169);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(162, 21);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.Text = "Mostrar por agotarse";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.swagotarse.AutoSize = true;
+            this.swagotarse.Location = new System.Drawing.Point(5, 169);
+            this.swagotarse.Name = "swagotarse";
+            this.swagotarse.Size = new System.Drawing.Size(162, 21);
+            this.swagotarse.TabIndex = 11;
+            this.swagotarse.Text = "Mostrar por agotarse";
+            this.swagotarse.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // swagotados
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(5, 142);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(140, 21);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.Text = "Mostrar agotados";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.swagotados.AutoSize = true;
+            this.swagotados.Location = new System.Drawing.Point(5, 142);
+            this.swagotados.Name = "swagotados";
+            this.swagotados.Size = new System.Drawing.Size(140, 21);
+            this.swagotados.TabIndex = 10;
+            this.swagotados.Text = "Mostrar agotados";
+            this.swagotados.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtsearchbyname
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 82);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(210, 22);
-            this.textBox3.TabIndex = 9;
+            this.txtsearchbyname.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtsearchbyname.Enabled = false;
+            this.txtsearchbyname.Location = new System.Drawing.Point(6, 82);
+            this.txtsearchbyname.Name = "txtsearchbyname";
+            this.txtsearchbyname.Size = new System.Drawing.Size(210, 22);
+            this.txtsearchbyname.TabIndex = 9;
+            this.txtsearchbyname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsearchbyname_KeyPress);
             // 
             // label1
             // 
@@ -263,7 +270,7 @@
             this.groupBox2.Size = new System.Drawing.Size(574, 529);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Inventario de videojuegos (Doble click para dar de baja)";
+            this.groupBox2.Text = "Inventario de videojuegos";
             // 
             // dgvbase
             // 
@@ -324,12 +331,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtvideojuego;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.TextBox txtsearchbyname;
+        private System.Windows.Forms.Button btnbuscar;
+        private System.Windows.Forms.RadioButton swtodos;
+        private System.Windows.Forms.RadioButton swagotarse;
+        private System.Windows.Forms.RadioButton swagotados;
+        private System.Windows.Forms.RadioButton swnombre;
         private System.Windows.Forms.Button btnquit;
     }
 }
