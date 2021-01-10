@@ -1,4 +1,5 @@
-﻿using models.db;
+﻿using controllers;
+using models.db;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace videojuegos.formularios
         public MenuForm(usuarios usuario)
         {
             this.Usuario = usuario;
+            globals.usuario = usuario;
             this.Text = $"Sistema videojuegos v1 - Empleado actual: {usuario.nombre_real}";
             InitializeComponent();
         }

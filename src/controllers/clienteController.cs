@@ -10,6 +10,7 @@ namespace controllers
 {
     public class clienteController
     {
+        auditoriaController aCtrl = new auditoriaController();
         public async Task<clientes> obtenerPorId(int clienteId)
         {
             using (var db = new videojuegos_db())
@@ -29,6 +30,13 @@ namespace controllers
                    c.nombre == clienteNombre &&
                    c.estatus != 0
                 );
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Verifico el nombre {clienteNombre}.",
+                    fecha =  Convert.ToDateTime( DateTime.Now.ToString("d") ),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return cl != null ? cl : null;
             }
         }
@@ -38,6 +46,13 @@ namespace controllers
             {
                 var newCliente = db.clientes.Add(cliente);
                 await db.SaveChangesAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Creo al cliente {cliente.nombre}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return newCliente;
             }
         }
@@ -51,6 +66,13 @@ namespace controllers
                 );
                 cl.nombre = cliente.nombre;
                 await db.SaveChangesAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Actualizo el cliente {cliente.nombre}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return cl;
             }
         }
@@ -64,6 +86,13 @@ namespace controllers
                 );
                 cliente.estatus = 0;
                 await db.SaveChangesAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Dio de baja al cliente {cliente.nombre}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return cliente;
             }
         }
@@ -75,6 +104,13 @@ namespace controllers
                 var cls = await db.clientes.Take(100)
                     .OrderByDescending(o => o.id)
                     .ToListAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Obtener todos los clientes.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return cls
                         .OrderByDescending(o => o.id)
                         .Where(u => u.estatus != 0)

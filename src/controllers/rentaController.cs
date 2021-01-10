@@ -11,6 +11,7 @@ namespace controllers
 {
     public class rentaController
     {
+        auditoriaController aCtrl = new auditoriaController();
         public async Task<FullRenta> obtenerPorId(int rentaId)
         {
             using (var db =  new videojuegos_db())
@@ -40,6 +41,13 @@ namespace controllers
                                              Total = renta.total
                                          }
                                         ).FirstOrDefaultAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Verifico la renta del cliente {rentafromdb.Cliente}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return new FullRenta(renta: rentafromdb, detalles: detalles);
             }
         }
@@ -84,6 +92,14 @@ namespace controllers
                         ).ToList());
                     }
                 );
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Reviso las rentas.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
 
                 return listaDeRentas
                         .OrderByDescending(o => o.Renta.Id)
@@ -131,6 +147,14 @@ namespace controllers
                     ).ToList())
                 );
 
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Reviso las rentas por cliente",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return listaDeRentas
                         .OrderByDescending(o => o.Renta.Id)
                         .Where(u => u.Renta.Estatus != 0)
@@ -176,6 +200,14 @@ namespace controllers
                     ).ToList())
                 );
 
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Reviso las rentas por empleados.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return listaDeRentas
                         .OrderByDescending(o => o.Renta.Id)
                         .Where(u => u.Renta.Estatus != 0)
@@ -203,6 +235,15 @@ namespace controllers
                     }
                 ));
                 await db.SaveChangesAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Creo una renta con folio {nuevaRenta.id}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return await obtenerPorId(nuevaRenta.id);
             }
         }
@@ -216,6 +257,15 @@ namespace controllers
                 );
                 renta.estatus = 0;
                 await db.SaveChangesAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Dio de baja la renta con id {renta.id}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return await obtenerPorId(rentaId);
             }
         }
@@ -242,6 +292,14 @@ namespace controllers
                 renta.estatus = 0;
 
                 await db.SaveChangesAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Recibio la renta con id {renta.id}",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
 
                 return await obtenerPorId(rentaId);
             }

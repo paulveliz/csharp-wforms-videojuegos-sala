@@ -11,6 +11,7 @@ namespace controllers
 {
     public class inventarioController
     {
+        auditoriaController aCtrl = new auditoriaController();
         public async Task<Inventario> obtenerPorId(int inventarioId)
         {
             using (var db = new videojuegos_db())
@@ -25,6 +26,13 @@ namespace controllers
                                      Existencias = inventario.existencias,
                                      Estatus = (int)inventario.estatus
                                  }).FirstOrDefaultAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Verifico el inventario del juego {inv.Videojuego}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return inv;
             }
         }
@@ -35,6 +43,13 @@ namespace controllers
             {
                 var newInv = db.inventarios.Add(inventario);
                 await db.SaveChangesAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Creo un inventario para un juego con id {inventario.id}",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return await obtenerPorId(newInv.id);
             }
         }
@@ -48,6 +63,13 @@ namespace controllers
                 );
                 inventario.existencias += existencias;
                 await db.SaveChangesAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Agrego existencias al inventario con id {inventario.id}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return await obtenerPorId(inventario.id);
             }
         }
@@ -61,6 +83,13 @@ namespace controllers
                 );
                 inventario.existencias -= existencias;
                 await db.SaveChangesAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Quito existencias para el inventario con id {inventario.id}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return await obtenerPorId(inventario.id);
             }
         }
@@ -79,6 +108,13 @@ namespace controllers
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Reviso todos los inventarios",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return inventarios
                         .OrderByDescending(o => o.Id)
                         .Where(u => u.Estatus != 0)
@@ -100,6 +136,13 @@ namespace controllers
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Reviso los agotados.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return inventarios
                         .OrderByDescending(o => o.Id)
                         .Where(u => u.Estatus != 0)
@@ -120,6 +163,13 @@ namespace controllers
                                              Existencias = inv.existencias,
                                              Estatus = (int)inv.estatus
                                          }).ToListAsync();
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Reviso los que estan por agotarse",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
                 return inventarios
                         .OrderByDescending(o => o.Id)
                         .Where(u => u.Estatus != 0)

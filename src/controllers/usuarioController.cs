@@ -10,6 +10,7 @@ namespace controllers
 {
     public class usuarioController
     {
+        auditoriaController aCtrl = new auditoriaController();
         public async Task<usuarios> obtenerPorId(int usuarioId)
         {
             using (var db = new videojuegos_db())
@@ -18,6 +19,15 @@ namespace controllers
                     u.id == usuarioId &&
                     u.estatus != 0
                 );
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Verifico el usuario con id {usuarioId}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return usuario;
             }
         }
@@ -32,6 +42,15 @@ namespace controllers
                    u.estatus != 0
                 );
 
+                string response = user != null ? "Aprobado" : "Denegado";
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Acceso al sistema {response} para el empleado {usuario} ",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = 1
+                });
+
                 return user != null ? user : null;
             }
         }
@@ -43,6 +62,15 @@ namespace controllers
                     u.nombre == nombre &&
                     u.estatus != 0
                 );
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Verifico el nombre de usuario {nombre}",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = 1
+                });
+
                 return toVerify != null ? toVerify : null; 
             }
         }
@@ -52,6 +80,15 @@ namespace controllers
             using (var db = new videojuegos_db())
             {
                 var users = await db.usuarios.Take(100).ToListAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Obtuvo todos los empleados.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = 1
+                });
+
                 return users
                         .OrderByDescending( o => o.id)
                         .Where(u => u.estatus != 0)
@@ -65,6 +102,15 @@ namespace controllers
             {
                 var usuario = db.usuarios.Add(nuevoUsuario);
                 await db.SaveChangesAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Creo al usuario {usuario.nombre}",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return usuario;
             }
         }
@@ -80,6 +126,15 @@ namespace controllers
                 usuario.nombre_real = usuarioActualizado.nombre_real;
                 usuario.pass = usuarioActualizado.pass;
                 await db.SaveChangesAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Actualizo al usuario {usuario.nombre}",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return usuario;
             }
         }
@@ -93,6 +148,15 @@ namespace controllers
                 );
                 usuario.estatus = 0;
                 await db.SaveChangesAsync();
+
+                await aCtrl.auditar(new auditorias
+                {
+                    accion = $"Dio de baja al usuario con id {usuarioId}.",
+                    fecha = Convert.ToDateTime(DateTime.Now.ToString("d")),
+                    estatus = 1,
+                    usuario_id = globals.usuario.id
+                });
+
                 return usuario;
             }
         }
