@@ -46,7 +46,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtvideojuego = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvbase = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -72,8 +72,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(795, 529);
-            this.splitContainer1.SplitterDistance = 265;
+            this.splitContainer1.Size = new System.Drawing.Size(867, 529);
+            this.splitContainer1.SplitterDistance = 289;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupBox1
@@ -87,11 +87,11 @@
             this.groupBox1.Controls.Add(this.btnsearch);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtvideojuego);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(265, 529);
+            this.groupBox1.Size = new System.Drawing.Size(289, 529);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Agregar existencias";
@@ -156,12 +156,13 @@
             // 
             // btnsearch
             // 
-            this.btnsearch.Location = new System.Drawing.Point(198, 62);
+            this.btnsearch.Location = new System.Drawing.Point(232, 62);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(51, 30);
             this.btnsearch.TabIndex = 3;
             this.btnsearch.Text = "?";
             this.btnsearch.UseVisualStyleBackColor = true;
+            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
             // groupBox3
             // 
@@ -245,13 +246,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Agregar existencias del producto:";
             // 
-            // textBox1
+            // txtvideojuego
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(186, 22);
-            this.textBox1.TabIndex = 0;
+            this.txtvideojuego.Location = new System.Drawing.Point(6, 66);
+            this.txtvideojuego.Name = "txtvideojuego";
+            this.txtvideojuego.ReadOnly = true;
+            this.txtvideojuego.Size = new System.Drawing.Size(220, 22);
+            this.txtvideojuego.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -259,7 +260,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(526, 529);
+            this.groupBox2.Size = new System.Drawing.Size(574, 529);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inventario de videojuegos (Doble click para dar de baja)";
@@ -278,14 +279,14 @@
             this.dgvbase.RowHeadersWidth = 51;
             this.dgvbase.RowTemplate.Height = 24;
             this.dgvbase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvbase.Size = new System.Drawing.Size(520, 508);
+            this.dgvbase.Size = new System.Drawing.Size(568, 508);
             this.dgvbase.TabIndex = 1;
             // 
             // InventariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 529);
+            this.ClientSize = new System.Drawing.Size(867, 529);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -294,6 +295,7 @@
             this.Name = "InventariosForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de inventario";
+            this.Load += new System.EventHandler(this.InventariosForm_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -321,7 +323,7 @@
         private System.Windows.Forms.Button btnsearch;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtvideojuego;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.RadioButton radioButton3;
