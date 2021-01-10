@@ -74,6 +74,12 @@
     <Compile Include="formularios\subs\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\subs\DevolverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\subs\DevolverForm.Designer.cs">
+      <DependentUpon>DevolverForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\subs\EmpleadosForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\subs\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\subs\DevolverForm.resx">
+      <DependentUpon>DevolverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\subs\EmpleadosForm.resx">
       <DependentUpon>EmpleadosForm.cs</DependentUpon>

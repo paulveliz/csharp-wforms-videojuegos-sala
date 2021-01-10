@@ -219,5 +219,33 @@ namespace controllers
                 return await obtenerPorId(rentaId);
             }
         }
+
+        public async Task<FullRenta> recibirRenta(int rentaId)
+        {
+            using (var db = new videojuegos_db())
+            {
+                var renta = await db.rentas.FirstOrDefaultAsync(u =>
+                    u.id == rentaId
+                );
+
+                var detalles = await db.rentas_detalles.Where(rd =>
+                   rd.renta_id == rentaId
+                ).ToListAsync();
+
+                detalles.ForEach(async e =>
+                    {
+                        var iCtrl = new inventarioController();
+                        await iCtrl.agregarExistencias(e.videojuego_id, e.cantidad);
+                        e.estatus = 0;
+                    }
+                );
+                renta.estatus = 0;
+
+                await db.SaveChangesAsync();
+
+                return await obtenerPorId(rentaId);
+            }
+        }
+
     }
 }

@@ -92,8 +92,9 @@
             // recibirToolStripMenuItem
             // 
             this.recibirToolStripMenuItem.Name = "recibirToolStripMenuItem";
-            this.recibirToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.recibirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.recibirToolStripMenuItem.Text = "Recibir";
+            this.recibirToolStripMenuItem.Click += new System.EventHandler(this.recibirToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 

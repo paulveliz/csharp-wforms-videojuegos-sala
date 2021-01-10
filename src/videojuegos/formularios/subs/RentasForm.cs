@@ -238,5 +238,11 @@ namespace videojuegos.formularios.subs
                 this.btnquit.Enabled = true;
             }
         }
+
+        private void recibirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dfrm = new DevolverForm();
+            dfrm.ShowDialog();
+        }
     }
 }
