@@ -92,6 +92,12 @@
     <Compile Include="formularios\subs\RentasForm.Designer.cs">
       <DependentUpon>RentasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\subs\seleccion\ClienteSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\subs\seleccion\ClienteSelection.Designer.cs">
+      <DependentUpon>ClienteSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\subs\seleccion\VideoJuegosSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\subs\RentasForm.resx">
       <DependentUpon>RentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\subs\seleccion\ClienteSelection.resx">
+      <DependentUpon>ClienteSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formularios\subs\seleccion\VideoJuegosSelection.resx">
       <DependentUpon>VideoJuegosSelection.cs</DependentUpon>

@@ -71,6 +71,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="55" Nullable="false" />
           <Property Name="estatus" Type="tinyint" />
+          <Property Name="precio" Type="decimal" Precision="6" Scale="2" />
         </EntityType>
         <Association Name="FK__auditoria__usuar__114A936A">
           <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
@@ -258,6 +259,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="55" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estatus" Type="Byte" />
+          <Property Name="precio" Type="Decimal" Precision="6" Scale="2" />
           <NavigationProperty Name="inventarios" Relationship="Self.FK__inventari__video__09A971A2" FromRole="videojuegos" ToRole="inventarios" />
           <NavigationProperty Name="rentas_detalles" Relationship="Self.FK__rentas_de__video__1BC821DD" FromRole="videojuegos" ToRole="rentas_detalles" />
         </EntityType>
@@ -443,6 +445,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

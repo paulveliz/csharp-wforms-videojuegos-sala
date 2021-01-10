@@ -35,7 +35,7 @@ namespace videojuegos.formularios
 
         private void rentarVideojuegosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var rentasForm = new formularios.subs.RentasForm();
+            var rentasForm = new formularios.subs.RentasForm(this.Usuario);
             rentasForm.ShowDialog();
         }
 

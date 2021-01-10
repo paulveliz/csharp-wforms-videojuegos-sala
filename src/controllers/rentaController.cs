@@ -189,6 +189,12 @@ namespace controllers
             {
                 var nuevaRenta = db.rentas.Add(renta);
                 await db.SaveChangesAsync();
+                detalle.ForEach(async d =>
+                   {
+                       // Disminuir existencias
+                       var inventarioCtrl = new inventarioController();
+                       await inventarioCtrl.disminuirExistencias(d.videojuego_id, d.cantidad);
+                   });
                 // Se puede cambiar por un foreach funcional.
                 var nuevaRentaD = db.rentas_detalles.AddRange(detalle.Select( d =>
                     {

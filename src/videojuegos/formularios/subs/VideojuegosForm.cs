@@ -33,8 +33,9 @@ namespace videojuegos.formularios.subs
             this.dgvbase.Columns[0].Visible = false;
             this.dgvbase.Columns[1].HeaderText = "Nombre del videojuego";
             this.dgvbase.Columns[2].Visible = false;
-            this.dgvbase.Columns[3].Visible = false;
-            this.dgvbase.Columns[4].Visible = false;
+            this.dgvbase.Columns[3].Visible = true;
+            this.dgvbase.Columns[5].Visible = false;
+            this.dgvbase.Columns[6].Visible = false;
         }
 
         private async void txtvideojuego_KeyPress(object sender, KeyPressEventArgs e)

@@ -34,26 +34,27 @@
             this.recibirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnfinalizar = new System.Windows.Forms.Button();
+            this.btnaddtocart = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txttotal = new System.Windows.Forms.TextBox();
+            this.btnquit = new System.Windows.Forms.Button();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.btnsearchclient = new System.Windows.Forms.Button();
+            this.btnsearchvideojuego = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtcant = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtvideojuego = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtcliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtempleado = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvbase = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Videojuego = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,23 +114,23 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.btnfinalizar);
+            this.groupBox1.Controls.Add(this.btnaddtocart);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.txttotal);
+            this.groupBox1.Controls.Add(this.btnquit);
+            this.groupBox1.Controls.Add(this.btnadd);
+            this.groupBox1.Controls.Add(this.btnsearchclient);
+            this.groupBox1.Controls.Add(this.btnsearchvideojuego);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtcant);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtvideojuego);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtcliente);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtempleado);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -138,23 +139,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // button6
+            // btnfinalizar
             // 
-            this.button6.Location = new System.Drawing.Point(144, 398);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(279, 29);
-            this.button6.TabIndex = 19;
-            this.button6.Text = "Concluir renta";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnfinalizar.Location = new System.Drawing.Point(144, 398);
+            this.btnfinalizar.Name = "btnfinalizar";
+            this.btnfinalizar.Size = new System.Drawing.Size(279, 29);
+            this.btnfinalizar.TabIndex = 3;
+            this.btnfinalizar.Text = "Concluir renta";
+            this.btnfinalizar.UseVisualStyleBackColor = true;
+            this.btnfinalizar.Click += new System.EventHandler(this.btnfinalizar_Click);
             // 
-            // button5
+            // btnaddtocart
             // 
-            this.button5.Location = new System.Drawing.Point(16, 249);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(397, 29);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Agregar videojuego a la cesta";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnaddtocart.Location = new System.Drawing.Point(16, 249);
+            this.btnaddtocart.Name = "btnaddtocart";
+            this.btnaddtocart.Size = new System.Drawing.Size(397, 29);
+            this.btnaddtocart.TabIndex = 2;
+            this.btnaddtocart.Text = "Agregar videojuego a la cesta";
+            this.btnaddtocart.UseVisualStyleBackColor = true;
+            this.btnaddtocart.Click += new System.EventHandler(this.btnaddtocart_Click);
             // 
             // label7
             // 
@@ -174,49 +177,54 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Total a pagar";
             // 
-            // textBox5
+            // txttotal
             // 
-            this.textBox5.Location = new System.Drawing.Point(25, 402);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(110, 22);
-            this.textBox5.TabIndex = 15;
+            this.txttotal.Location = new System.Drawing.Point(25, 402);
+            this.txttotal.Name = "txttotal";
+            this.txttotal.ReadOnly = true;
+            this.txttotal.Size = new System.Drawing.Size(110, 22);
+            this.txttotal.TabIndex = 15;
+            this.txttotal.Text = "0";
             // 
-            // button4
+            // btnquit
             // 
-            this.button4.Location = new System.Drawing.Point(372, 204);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(41, 29);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "+";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnquit.Location = new System.Drawing.Point(372, 204);
+            this.btnquit.Name = "btnquit";
+            this.btnquit.Size = new System.Drawing.Size(41, 29);
+            this.btnquit.TabIndex = 14;
+            this.btnquit.Text = "+";
+            this.btnquit.UseVisualStyleBackColor = true;
+            this.btnquit.Click += new System.EventHandler(this.btnquit_Click);
             // 
-            // button3
+            // btnadd
             // 
-            this.button3.Location = new System.Drawing.Point(325, 204);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(41, 29);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "-";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnadd.Location = new System.Drawing.Point(325, 204);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(41, 29);
+            this.btnadd.TabIndex = 13;
+            this.btnadd.Text = "-";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
             // 
-            // button2
+            // btnsearchclient
             // 
-            this.button2.Location = new System.Drawing.Point(225, 153);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(41, 29);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "?";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnsearchclient.Location = new System.Drawing.Point(372, 152);
+            this.btnsearchclient.Name = "btnsearchclient";
+            this.btnsearchclient.Size = new System.Drawing.Size(41, 29);
+            this.btnsearchclient.TabIndex = 0;
+            this.btnsearchclient.Text = "?";
+            this.btnsearchclient.UseVisualStyleBackColor = true;
+            this.btnsearchclient.Click += new System.EventHandler(this.btnsearchclient_Click);
             // 
-            // button1
+            // btnsearchvideojuego
             // 
-            this.button1.Location = new System.Drawing.Point(225, 204);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(41, 29);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "?";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnsearchvideojuego.Location = new System.Drawing.Point(225, 204);
+            this.btnsearchvideojuego.Name = "btnsearchvideojuego";
+            this.btnsearchvideojuego.Size = new System.Drawing.Size(41, 29);
+            this.btnsearchvideojuego.TabIndex = 1;
+            this.btnsearchvideojuego.Text = "?";
+            this.btnsearchvideojuego.UseVisualStyleBackColor = true;
+            this.btnsearchvideojuego.Click += new System.EventHandler(this.btnsearchvideojuego_Click);
             // 
             // label5
             // 
@@ -227,14 +235,14 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Cant.";
             // 
-            // textBox4
+            // txtcant
             // 
-            this.textBox4.Location = new System.Drawing.Point(281, 207);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(38, 22);
-            this.textBox4.TabIndex = 9;
-            this.textBox4.Text = "1";
+            this.txtcant.Location = new System.Drawing.Point(281, 207);
+            this.txtcant.Name = "txtcant";
+            this.txtcant.ReadOnly = true;
+            this.txtcant.Size = new System.Drawing.Size(38, 22);
+            this.txtcant.TabIndex = 9;
+            this.txtcant.Text = "1";
             // 
             // label4
             // 
@@ -245,13 +253,14 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Videojuego a rentar";
             // 
-            // textBox3
+            // txtvideojuego
             // 
-            this.textBox3.Location = new System.Drawing.Point(16, 207);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(203, 22);
-            this.textBox3.TabIndex = 7;
+            this.txtvideojuego.Location = new System.Drawing.Point(16, 207);
+            this.txtvideojuego.Name = "txtvideojuego";
+            this.txtvideojuego.ReadOnly = true;
+            this.txtvideojuego.Size = new System.Drawing.Size(203, 22);
+            this.txtvideojuego.TabIndex = 7;
+            this.txtvideojuego.TabStop = false;
             // 
             // label3
             // 
@@ -262,13 +271,14 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Cliente";
             // 
-            // textBox2
+            // txtcliente
             // 
-            this.textBox2.Location = new System.Drawing.Point(16, 156);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(203, 22);
-            this.textBox2.TabIndex = 5;
+            this.txtcliente.Location = new System.Drawing.Point(16, 156);
+            this.txtcliente.Name = "txtcliente";
+            this.txtcliente.ReadOnly = true;
+            this.txtcliente.Size = new System.Drawing.Size(350, 22);
+            this.txtcliente.TabIndex = 5;
+            this.txtcliente.TabStop = false;
             // 
             // label2
             // 
@@ -279,13 +289,14 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Empleado actual";
             // 
-            // textBox1
+            // txtempleado
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(203, 22);
-            this.textBox1.TabIndex = 3;
+            this.txtempleado.Location = new System.Drawing.Point(16, 104);
+            this.txtempleado.Name = "txtempleado";
+            this.txtempleado.ReadOnly = true;
+            this.txtempleado.Size = new System.Drawing.Size(397, 22);
+            this.txtempleado.TabIndex = 3;
+            this.txtempleado.TabStop = false;
             // 
             // label1
             // 
@@ -306,7 +317,7 @@
             this.groupBox2.Size = new System.Drawing.Size(557, 436);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Productos en la renta (Doble click para eliminar videojuego)";
+            this.groupBox2.Text = "Productos en la renta (Doble click para eliminar videojuego de la cesta)";
             // 
             // dgvbase
             // 
@@ -315,6 +326,7 @@
             this.dgvbase.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvbase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvbase.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
             this.Videojuego,
             this.Cantidad,
             this.Importe});
@@ -328,6 +340,15 @@
             this.dgvbase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvbase.Size = new System.Drawing.Size(551, 415);
             this.dgvbase.TabIndex = 0;
+            this.dgvbase.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvbase_CellDoubleClick);
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
             // Videojuego
             // 
@@ -365,6 +386,7 @@
             this.Name = "RentasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de rentas";
+            this.Load += new System.EventHandler(this.RentasForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -390,23 +412,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvbase;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnsearchvideojuego;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtcant;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtvideojuego;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtcliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox txtempleado;
+        private System.Windows.Forms.Button btnquit;
+        private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Button btnsearchclient;
+        private System.Windows.Forms.Button btnfinalizar;
+        private System.Windows.Forms.Button btnaddtocart;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txttotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Videojuego;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;

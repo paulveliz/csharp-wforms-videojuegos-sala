@@ -32,8 +32,9 @@ namespace videojuegos.formularios.subs.seleccion
             this.dgvbase.Columns[0].Visible = false;
             this.dgvbase.Columns[1].HeaderText = "Nombre del videojuego";
             this.dgvbase.Columns[2].Visible = false;
-            this.dgvbase.Columns[3].Visible = false;
+            this.dgvbase.Columns[3].Visible = true;
             this.dgvbase.Columns[4].Visible = false;
+            this.dgvbase.Columns[5].Visible = false;
         }
 
         private async void VideoJuegosSelection_Load(object sender, EventArgs e)
@@ -42,17 +43,25 @@ namespace videojuegos.formularios.subs.seleccion
             this.dgvbase.Columns[0].Visible = false;
             this.dgvbase.Columns[1].HeaderText = "Nombre del videojuego";
             this.dgvbase.Columns[2].Visible = false;
-            this.dgvbase.Columns[3].Visible = false;
+            this.dgvbase.Columns[3].Visible = true;
             this.dgvbase.Columns[4].Visible = false;
+            this.dgvbase.Columns[5].Visible = false;
         }
 
-        private void dgvbase_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgvbase_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
+
                 var videojuego = (models.db.videojuegos)this.dgvbase.SelectedRows[0].DataBoundItem;
+
+                var videojuegos = await new inventarioController().obtenerTodos();
+                var invj = videojuegos.Where(v =>
+                   v.Videojuego == videojuego.nombre
+                ).FirstOrDefault();
+
                 var r = MessageBox.Show(
-                    $"Desea seleccionar el videojuego {videojuego.nombre}",
+                    $"Desea seleccionar el videojuego {videojuego.nombre}\n Existencias: {invj.Existencias}",
                     "Confirmar",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
