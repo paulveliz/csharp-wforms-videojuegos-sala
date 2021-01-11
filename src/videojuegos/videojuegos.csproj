@@ -36,15 +36,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -104,6 +111,24 @@
     <Compile Include="formularios\subs\seleccion\ClienteSelection.Designer.cs">
       <DependentUpon>ClienteSelection.cs</DependentUpon>
     </Compile>
+    <Compile Include="formularios\subs\seleccion\DateAndClienteSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\subs\seleccion\DateAndClienteSelection.Designer.cs">
+      <DependentUpon>DateAndClienteSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\subs\seleccion\DateAndObjectPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\subs\seleccion\DateAndObjectPicker.Designer.cs">
+      <DependentUpon>DateAndObjectPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\subs\seleccion\DateTimePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formularios\subs\seleccion\DateTimePicker.Designer.cs">
+      <DependentUpon>DateTimePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="formularios\subs\seleccion\VideoJuegosSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +143,58 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportes\auditorias.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>auditorias.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\forms\ReporteAuditorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\forms\ReporteAuditorias.Designer.cs">
+      <DependentUpon>ReporteAuditorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\forms\ReporteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\forms\ReporteInventario.Designer.cs">
+      <DependentUpon>ReporteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\forms\ReporteRentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\forms\ReporteRentas.Designer.cs">
+      <DependentUpon>ReporteRentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\forms\TicketRenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportes\forms\TicketRenta.Designer.cs">
+      <DependentUpon>TicketRenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\inventarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inventarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\modelos\Auditoria.cs" />
+    <Compile Include="reportes\modelos\Inventario.cs" />
+    <Compile Include="reportes\modelos\RentaDetalle.cs" />
+    <Compile Include="reportes\modelos\RentaOficial.cs" />
+    <Compile Include="reportes\rentas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rentas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reportes\ticketrenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ticketrenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="formularios\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +219,15 @@
     <EmbeddedResource Include="formularios\subs\seleccion\ClienteSelection.resx">
       <DependentUpon>ClienteSelection.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formularios\subs\seleccion\DateAndClienteSelection.resx">
+      <DependentUpon>DateAndClienteSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\subs\seleccion\DateAndObjectPicker.resx">
+      <DependentUpon>DateAndObjectPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formularios\subs\seleccion\DateTimePicker.resx">
+      <DependentUpon>DateTimePicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formularios\subs\seleccion\VideoJuegosSelection.resx">
       <DependentUpon>VideoJuegosSelection.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +243,34 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="reportes\auditorias.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>auditorias.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\forms\ReporteAuditorias.resx">
+      <DependentUpon>ReporteAuditorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\forms\ReporteInventario.resx">
+      <DependentUpon>ReporteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\forms\ReporteRentas.resx">
+      <DependentUpon>ReporteRentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\forms\TicketRenta.resx">
+      <DependentUpon>TicketRenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\inventarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>inventarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\rentas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rentas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportes\ticketrenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ticketrenta.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -183,6 +297,9 @@
       <Project>{E3B80921-E12D-4AF9-8E14-578D11FA5EDE}</Project>
       <Name>models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

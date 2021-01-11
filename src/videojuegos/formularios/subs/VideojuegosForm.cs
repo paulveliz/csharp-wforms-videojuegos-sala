@@ -34,8 +34,8 @@ namespace videojuegos.formularios.subs
             this.dgvbase.Columns[1].HeaderText = "Nombre del videojuego";
             this.dgvbase.Columns[2].Visible = false;
             this.dgvbase.Columns[3].Visible = true;
+            this.dgvbase.Columns[4].Visible = false;
             this.dgvbase.Columns[5].Visible = false;
-            this.dgvbase.Columns[6].Visible = false;
         }
 
         private async void txtvideojuego_KeyPress(object sender, KeyPressEventArgs e)
@@ -68,6 +68,8 @@ namespace videojuegos.formularios.subs
                     this.btnadd.Text = "Actualizar";
                     this.txtvideojuego.Focus();
                     this.Videojuego = videojuego;
+                    this.textBox1.Enabled = true;
+                    this.textBox1.Focus();
                 }
                 else
                 {
@@ -76,19 +78,32 @@ namespace videojuegos.formularios.subs
                     this.txtvideojuego.Enabled = false;
                     this.btnadd.Focus();
                     this.btnadd.Text = "Agregar";
+                    this.textBox1.Enabled = true;
+                    this.textBox1.Focus();
                 }
             }
         }
 
         private async void btnadd_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text.Length < 3)
+            {
+                MessageBox.Show(
+                    "Inserte un precio",
+                    "Sin precio",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
             if (toUpdate)
             {
                 var updatedJuego = await vCtrl.editarJuego(new models.db.videojuegos
                 {
                     id = Videojuego.id,
                     estatus = 1,
-                    nombre = this.txtvideojuego.Text.Trim()
+                    nombre = this.txtvideojuego.Text.Trim(),
+                    precio = Convert.ToDecimal(this.textBox1.Text)
                 });
 
                 if (updatedJuego != null)
@@ -103,6 +118,8 @@ namespace videojuegos.formularios.subs
                     this.txtvideojuego.Focus();
                     this.txtvideojuego.Enabled = true;
                     this.btnadd.Enabled = false;
+                    this.textBox1.Enabled = false;
+                    this.textBox1.Clear();
                     await cargarVideojuegos();
                 }
                 else
@@ -127,6 +144,7 @@ namespace videojuegos.formularios.subs
                 var newCl = await vCtrl.crearNuevo(new models.db.videojuegos
                 {
                     nombre = this.txtvideojuego.Text.Trim().ToUpper(),
+                    precio = (decimal)Convert.ToDouble(this.textBox1.Text),
                     estatus = 1
                 });
 
@@ -149,6 +167,8 @@ namespace videojuegos.formularios.subs
                     this.txtvideojuego.Focus();
                     this.btnadd.Enabled = false;
                     this.txtvideojuego.Enabled = true;
+                    this.textBox1.Clear();
+                    this.textBox1.Enabled = false;
                     await cargarVideojuegos();
                 }
                 else
@@ -217,9 +237,21 @@ namespace videojuegos.formularios.subs
                 this.txtvideojuego.Clear();
                 this.btnadd.Enabled = false;
                 this.txtvideojuego.Enabled = true;
+                this.textBox1.Clear();
+                this.textBox1.Enabled = false;
                 await cargarVideojuegos();
                 this.txtvideojuego.Focus();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

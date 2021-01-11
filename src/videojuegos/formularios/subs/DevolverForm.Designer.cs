@@ -81,6 +81,7 @@
             this.folioOlvidadoToolStripMenuItem.Name = "folioOlvidadoToolStripMenuItem";
             this.folioOlvidadoToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.folioOlvidadoToolStripMenuItem.Text = "Folio olvidado";
+            this.folioOlvidadoToolStripMenuItem.Click += new System.EventHandler(this.folioOlvidadoToolStripMenuItem_Click);
             // 
             // DevolverForm
             // 

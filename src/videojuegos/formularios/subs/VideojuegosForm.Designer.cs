@@ -31,11 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideojuegosForm));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnadd = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtvideojuego = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvbase = new System.Windows.Forms.DataGridView();
-            this.txtvideojuego = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnadd = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +66,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.btnadd);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtvideojuego);
@@ -74,6 +78,36 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Videojuego";
+            // 
+            // btnadd
+            // 
+            this.btnadd.Enabled = false;
+            this.btnadd.Location = new System.Drawing.Point(155, 156);
+            this.btnadd.Name = "btnadd";
+            this.btnadd.Size = new System.Drawing.Size(95, 27);
+            this.btnadd.TabIndex = 2;
+            this.btnadd.Text = "Agregar";
+            this.btnadd.UseVisualStyleBackColor = true;
+            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre de videojuego:";
+            // 
+            // txtvideojuego
+            // 
+            this.txtvideojuego.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtvideojuego.Location = new System.Drawing.Point(15, 64);
+            this.txtvideojuego.MaxLength = 20;
+            this.txtvideojuego.Name = "txtvideojuego";
+            this.txtvideojuego.Size = new System.Drawing.Size(235, 22);
+            this.txtvideojuego.TabIndex = 0;
+            this.txtvideojuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvideojuego_KeyPress);
             // 
             // groupBox2
             // 
@@ -104,35 +138,26 @@
             this.dgvbase.TabIndex = 0;
             this.dgvbase.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvbase_CellDoubleClick);
             // 
-            // txtvideojuego
+            // label2
             // 
-            this.txtvideojuego.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtvideojuego.Location = new System.Drawing.Point(15, 64);
-            this.txtvideojuego.MaxLength = 20;
-            this.txtvideojuego.Name = "txtvideojuego";
-            this.txtvideojuego.Size = new System.Drawing.Size(235, 22);
-            this.txtvideojuego.TabIndex = 0;
-            this.txtvideojuego.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtvideojuego_KeyPress);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(152, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Precio $";
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre de videojuego:";
-            // 
-            // btnadd
-            // 
-            this.btnadd.Enabled = false;
-            this.btnadd.Location = new System.Drawing.Point(155, 92);
-            this.btnadd.Name = "btnadd";
-            this.btnadd.Size = new System.Drawing.Size(95, 27);
-            this.btnadd.TabIndex = 2;
-            this.btnadd.Text = "Agregar";
-            this.btnadd.UseVisualStyleBackColor = true;
-            this.btnadd.Click += new System.EventHandler(this.btnadd_Click);
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(155, 118);
+            this.textBox1.MaxLength = 20;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(89, 22);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // VideojuegosForm
             // 
@@ -170,5 +195,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtvideojuego;
         private System.Windows.Forms.Button btnadd;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -72,7 +72,9 @@ namespace videojuegos.formularios.subs
                         return;
                     }
 
-                    // Imprimir comprobante
+                    // Imprimir ticket.
+                    var ticket = new reportes.forms.TicketRenta(renta.Renta, renta.Detalles);
+                    ticket.ShowDialog();
                     this.DialogResult = DialogResult.Yes;
                 }
                 else
@@ -90,6 +92,16 @@ namespace videojuegos.formularios.subs
             {
                 return;
             }
+        }
+
+        private void folioOlvidadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "Por favor revise el historial de rentas hasta ubicar al cliente para poder obtener el folio.",
+                "Descuido",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Hand
+            );
         }
     }
 }

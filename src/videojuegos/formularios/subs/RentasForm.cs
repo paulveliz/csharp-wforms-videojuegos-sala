@@ -206,13 +206,23 @@ namespace videojuegos.formularios.subs
             var newRenta = await rCtrl.crearNueva(renta, detalles);
             if(newRenta != null)
             {
-                MessageBox.Show(
+                var rrr = MessageBox.Show(
                         "La renta fue exitosa\nImprimir ticket?",
                         "Operacion exitosa",
-                        MessageBoxButtons.OK,
+                        MessageBoxButtons.YesNo,
                         MessageBoxIcon.Information
                     );
-                resetForm();
+                if(rrr == DialogResult.No) 
+                {
+                    resetForm();
+                }
+                else
+                {
+                    // Imprimir ticket.
+                    var ticket = new reportes.forms.TicketRenta(newRenta.Renta, newRenta.Detalles);
+                    ticket.ShowDialog();
+                    resetForm();
+                }
             }
             else
             {

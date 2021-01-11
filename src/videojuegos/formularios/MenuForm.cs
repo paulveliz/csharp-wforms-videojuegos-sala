@@ -59,5 +59,119 @@ namespace videojuegos.formularios
             var videojuegosForm = new formularios.subs.VideojuegosForm();
             videojuegosForm.ShowDialog();
         }
+
+        private async void informePorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new formularios.subs.seleccion.DateTimePicker())
+            {
+                var r = frm.ShowDialog();
+                if (r != DialogResult.Yes) return;
+
+                var auditorias = await new auditoriaController().obtenerAuditoriasPorFecha(frm.Fecha1, frm.Fecha2);
+                var rpt = new reportes.forms.ReporteAuditorias(auditorias, frm.Fecha1, frm.Fecha2);
+                rpt.ShowDialog();
+            }
+        }
+
+        private async void informePorEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new formularios.subs.seleccion.DateAndObjectPicker())
+            {
+                var r = frm.ShowDialog();
+                if (r != DialogResult.Yes) return;
+                var auditorias = await new auditoriaController().obtenerAuditoriasPorFecha(frm.Fecha1, frm.Fecha2);
+                var rpt = new reportes.forms.ReporteAuditorias(auditorias, frm.Fecha1, frm.Fecha2);
+                rpt.ShowDialog();
+            }
+        }
+
+        private async void depurarAuditoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var r = MessageBox.Show("Esta seguro de depurar las auditorias?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.No) return;
+
+            var aCtrl = await new auditoriaController().depurar();
+            if (aCtrl)
+            {
+                MessageBox.Show("Auditorias depuradas con exito", "Operacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private async void informeDeRentasPorFechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new formularios.subs.seleccion.DateTimePicker())
+            {
+                var r = frm.ShowDialog();
+                if (r != DialogResult.Yes) return;
+
+                var rentas = await new rentaController().obtenerRentas(frm.Fecha1, frm.Fecha2);
+                var result = rentas.Select( fr =>
+                    fr.Renta
+                ).ToList();
+                var rpt = new reportes.forms.ReporteRentas(result, frm.Fecha1, frm.Fecha2);
+                rpt.ShowDialog();
+            }
+        }
+
+        private async void informeDeRentasPorClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new formularios.subs.seleccion.DateAndClienteSelection())
+            {
+                var r = frm.ShowDialog();
+                if (r != DialogResult.Yes) return;
+                var rentas = await new rentaController().obtenerRentasPorCliente(frm.Fecha1, frm.Fecha2, frm.Cliente.id);
+                var result = rentas.Select(fr =>
+                                       fr.Renta
+                                    ).ToList();
+                var rpt = new reportes.forms.ReporteRentas(result, frm.Fecha1, frm.Fecha2);
+                rpt.ShowDialog();
+            }
+        }
+
+        private async void informeDeRentasPorEmpleadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var frm = new formularios.subs.seleccion.DateAndObjectPicker())
+            {
+                var r = frm.ShowDialog();
+                if (r != DialogResult.Yes) return;
+                var rentas = await new rentaController().obtenerRentasPorUsuario(frm.Fecha1, frm.Fecha2, frm.Empleado.id);
+                var result = rentas.Select(fr =>
+                                       fr.Renta
+                                    ).ToList();
+                var rpt = new reportes.forms.ReporteRentas(result, frm.Fecha1, frm.Fecha2);
+                rpt.ShowDialog();
+            }
+        }
+
+        private async void imprimirInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var r = MessageBox.Show("Imprimir inventario?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.No) return;
+
+            var inventarios = await new inventarioController().obtenerTodos();
+            var rpt = new reportes.forms.ReporteInventario(inventarios);
+            rpt.ShowDialog();
+
+        }
+
+        private async void informeDeAgotadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var r = MessageBox.Show("Imprimir inventario que esta agotado?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.No) return;
+
+            var inventarios = await new inventarioController().obtenerAgotados();
+            var rpt = new reportes.forms.ReporteInventario(inventarios);
+            rpt.ShowDialog();
+        }
+
+        private async void informePorAgotarseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var r = MessageBox.Show("Imprimir inventario que esta por agotarse?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.No) return;
+
+            var inventarios = await new inventarioController().obtenerPorAgotar();
+            var rpt = new reportes.forms.ReporteInventario(inventarios);
+            rpt.ShowDialog();
+        }
     }
 }

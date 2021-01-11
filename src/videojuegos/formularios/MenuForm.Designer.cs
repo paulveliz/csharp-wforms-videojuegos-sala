@@ -38,7 +38,6 @@
             this.informePorEmpleadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informeDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentarVideojuegosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informeDeRentasPorFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,10 +48,10 @@
             this.imprimirInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informeDeAgotadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informePorAgotarseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.videojuegosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.videojuegosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -104,24 +103,26 @@
             this.depurarAuditoriasToolStripMenuItem.Name = "depurarAuditoriasToolStripMenuItem";
             this.depurarAuditoriasToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
             this.depurarAuditoriasToolStripMenuItem.Text = "Depurar auditorias";
+            this.depurarAuditoriasToolStripMenuItem.Click += new System.EventHandler(this.depurarAuditoriasToolStripMenuItem_Click);
             // 
             // informePorFechasToolStripMenuItem
             // 
             this.informePorFechasToolStripMenuItem.Name = "informePorFechasToolStripMenuItem";
             this.informePorFechasToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
             this.informePorFechasToolStripMenuItem.Text = "Informe por fechas";
+            this.informePorFechasToolStripMenuItem.Click += new System.EventHandler(this.informePorFechasToolStripMenuItem_Click);
             // 
             // informePorEmpleadoToolStripMenuItem
             // 
             this.informePorEmpleadoToolStripMenuItem.Name = "informePorEmpleadoToolStripMenuItem";
             this.informePorEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(243, 26);
             this.informePorEmpleadoToolStripMenuItem.Text = "Informe por empleado";
+            this.informePorEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.informePorEmpleadoToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarClientesToolStripMenuItem,
-            this.informeDeClientesToolStripMenuItem});
+            this.gestionarClientesToolStripMenuItem});
             this.clientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem.Image")));
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(95, 24);
@@ -130,15 +131,9 @@
             // gestionarClientesToolStripMenuItem
             // 
             this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
             this.gestionarClientesToolStripMenuItem.Click += new System.EventHandler(this.gestionarClientesToolStripMenuItem_Click);
-            // 
-            // informeDeClientesToolStripMenuItem
-            // 
-            this.informeDeClientesToolStripMenuItem.Name = "informeDeClientesToolStripMenuItem";
-            this.informeDeClientesToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
-            this.informeDeClientesToolStripMenuItem.Text = "Informe de clientes";
             // 
             // rentasToolStripMenuItem
             // 
@@ -164,18 +159,21 @@
             this.informeDeRentasPorFechasToolStripMenuItem.Name = "informeDeRentasPorFechasToolStripMenuItem";
             this.informeDeRentasPorFechasToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
             this.informeDeRentasPorFechasToolStripMenuItem.Text = "Informe de rentas por fechas";
+            this.informeDeRentasPorFechasToolStripMenuItem.Click += new System.EventHandler(this.informeDeRentasPorFechasToolStripMenuItem_Click);
             // 
             // informeDeRentasPorClienteToolStripMenuItem
             // 
             this.informeDeRentasPorClienteToolStripMenuItem.Name = "informeDeRentasPorClienteToolStripMenuItem";
             this.informeDeRentasPorClienteToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
             this.informeDeRentasPorClienteToolStripMenuItem.Text = "Informe de rentas por cliente";
+            this.informeDeRentasPorClienteToolStripMenuItem.Click += new System.EventHandler(this.informeDeRentasPorClienteToolStripMenuItem_Click);
             // 
             // informeDeRentasPorEmpleadoToolStripMenuItem
             // 
             this.informeDeRentasPorEmpleadoToolStripMenuItem.Name = "informeDeRentasPorEmpleadoToolStripMenuItem";
             this.informeDeRentasPorEmpleadoToolStripMenuItem.Size = new System.Drawing.Size(308, 26);
             this.informeDeRentasPorEmpleadoToolStripMenuItem.Text = "Informe de rentas por empleado";
+            this.informeDeRentasPorEmpleadoToolStripMenuItem.Click += new System.EventHandler(this.informeDeRentasPorEmpleadoToolStripMenuItem_Click);
             // 
             // inventariosToolStripMenuItem
             // 
@@ -202,18 +200,29 @@
             this.imprimirInventarioToolStripMenuItem.Name = "imprimirInventarioToolStripMenuItem";
             this.imprimirInventarioToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.imprimirInventarioToolStripMenuItem.Text = "Imprimir inventario";
+            this.imprimirInventarioToolStripMenuItem.Click += new System.EventHandler(this.imprimirInventarioToolStripMenuItem_Click);
             // 
             // informeDeAgotadosToolStripMenuItem
             // 
             this.informeDeAgotadosToolStripMenuItem.Name = "informeDeAgotadosToolStripMenuItem";
             this.informeDeAgotadosToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.informeDeAgotadosToolStripMenuItem.Text = "Informe de agotados";
+            this.informeDeAgotadosToolStripMenuItem.Click += new System.EventHandler(this.informeDeAgotadosToolStripMenuItem_Click);
             // 
             // informePorAgotarseToolStripMenuItem
             // 
             this.informePorAgotarseToolStripMenuItem.Name = "informePorAgotarseToolStripMenuItem";
             this.informePorAgotarseToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
             this.informePorAgotarseToolStripMenuItem.Text = "Informe por agotarse";
+            this.informePorAgotarseToolStripMenuItem.Click += new System.EventHandler(this.informePorAgotarseToolStripMenuItem_Click);
+            // 
+            // videojuegosToolStripMenuItem
+            // 
+            this.videojuegosToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.videojuegosToolStripMenuItem.Name = "videojuegosToolStripMenuItem";
+            this.videojuegosToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.videojuegosToolStripMenuItem.Text = "Videojuegos";
+            this.videojuegosToolStripMenuItem.Click += new System.EventHandler(this.videojuegosToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -244,14 +253,6 @@
             this.label1.Size = new System.Drawing.Size(444, 46);
             this.label1.TabIndex = 2;
             this.label1.Text = "Sistema de videojuegos";
-            // 
-            // videojuegosToolStripMenuItem
-            // 
-            this.videojuegosToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
-            this.videojuegosToolStripMenuItem.Name = "videojuegosToolStripMenuItem";
-            this.videojuegosToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.videojuegosToolStripMenuItem.Text = "Videojuegos";
-            this.videojuegosToolStripMenuItem.Click += new System.EventHandler(this.videojuegosToolStripMenuItem_Click);
             // 
             // MenuForm
             // 
@@ -291,7 +292,6 @@
         private System.Windows.Forms.ToolStripMenuItem informePorFechasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informePorEmpleadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarClientesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informeDeClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentarVideojuegosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informeDeRentasPorFechasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informeDeRentasPorClienteToolStripMenuItem;
